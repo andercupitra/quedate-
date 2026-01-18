@@ -1,0 +1,698 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Valentina ✨</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Georgia', serif;
+            overflow: hidden;
+            background: #000;
+            color: #fff;
+        }
+
+        /* ===== PANTALLA DE INICIO ===== */
+        .screen {
+            position: fixed;
+            width: 100%;
+            height: 100vh;
+            top: 0;
+            left: 0;
+        }
+
+        #screen1 {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
+            z-index: 1000;
+        }
+
+        #screen2 {
+            display: none;
+            background: radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
+            z-index: 999;
+            overflow: hidden;
+        }
+
+        #screen3 {
+            display: none;
+            overflow-y: auto;
+            background: linear-gradient(135deg, #1a0033 0%, #330033 50%, #1a0033 100%);
+            z-index: 998;
+        }
+
+        #screen4 {
+            display: none;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            background: radial-gradient(ellipse at center, #1a0033 0%, #000000 100%);
+            z-index: 1001;
+        }
+
+        .stars-bg {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .star {
+            position: absolute;
+            background: white;
+            border-radius: 50%;
+            animation: twinkle 3s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 0.3; }
+            50% { opacity: 1; }
+        }
+
+        .landing-title {
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            text-align: center;
+            background: linear-gradient(45deg, #ff6ec7, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            animation: glow 2s ease-in-out infinite;
+            z-index: 10;
+            position: relative;
+        }
+
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 110, 199, 0.5)); }
+            50% { filter: drop-shadow(0 0 20px rgba(167, 139, 250, 0.8)); }
+        }
+
+        .btn {
+            padding: 1.5rem 4rem;
+            font-size: 1.5rem;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            color: white;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-family: 'Georgia', serif;
+            box-shadow: 0 0 30px rgba(102, 126, 234, 0.5);
+            z-index: 10;
+            position: relative;
+        }
+
+        .btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 50px rgba(102, 126, 234, 0.8);
+        }
+
+        /* ===== ANIMACIÓN DEL COHETE PROFESIONAL ===== */
+        .rocket {
+            position: absolute;
+            width: 120px;
+            height: 120px;
+            left: -150px;
+            top: 50%;
+            font-size: 90px;
+            transform: rotate(-45deg);
+            filter: drop-shadow(0 0 20px rgba(255, 110, 199, 0.8));
+            transform-origin: center center;
+        }
+
+        .rocket.flying {
+            animation: rocketApproach 4s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+        }
+
+        /* Aproximación al corazón */
+        @keyframes rocketApproach {
+            0% {
+                left: -150px;
+                top: 50%;
+                transform: rotate(-45deg) scale(1);
+                filter: drop-shadow(0 0 20px rgba(255, 110, 199, 0.8));
+            }
+            20% {
+                left: 20%;
+                top: 60%;
+                transform: rotate(-30deg) scale(1.1);
+                filter: drop-shadow(0 0 30px rgba(102, 126, 234, 0.9));
+            }
+            40% {
+                left: 35%;
+                top: 30%;
+                transform: rotate(-10deg) scale(1.05);
+                filter: drop-shadow(0 0 40px rgba(167, 139, 250, 0.9));
+            }
+            60% {
+                left: 45%;
+                top: 20%;
+                transform: rotate(10deg) scale(0.9);
+                filter: drop-shadow(0 0 50px rgba(255, 110, 199, 1));
+            }
+            80% {
+                left: 48%;
+                top: 35%;
+                transform: rotate(-5deg) scale(0.75);
+                filter: drop-shadow(0 0 40px rgba(167, 139, 250, 0.9));
+            }
+            100% {
+                left: 50%;
+                top: 30%;
+                transform: rotate(0deg) scale(0.7);
+                filter: drop-shadow(0 0 60px rgba(255, 110, 199, 1));
+            }
+        }
+
+        /* Órbita alrededor del corazón */
+        .rocket.orbiting {
+            animation: rocketOrbit 8s linear infinite;
+            left: 50% !important;
+            top: 50% !important;
+        }
+
+        @keyframes rocketOrbit {
+            0% {
+                transform: rotate(0deg) translateX(180px) rotate(0deg) scale(0.7);
+                filter: drop-shadow(0 0 30px rgba(255, 110, 199, 0.9));
+            }
+            25% {
+                transform: rotate(90deg) translateX(180px) rotate(-90deg) scale(0.65);
+                filter: drop-shadow(0 0 40px rgba(167, 139, 250, 1));
+            }
+            50% {
+                transform: rotate(180deg) translateX(180px) rotate(-180deg) scale(0.7);
+                filter: drop-shadow(0 0 50px rgba(102, 126, 234, 1));
+            }
+            75% {
+                transform: rotate(270deg) translateX(180px) rotate(-270deg) scale(0.65);
+                filter: drop-shadow(0 0 40px rgba(255, 110, 199, 1));
+            }
+            100% {
+                transform: rotate(360deg) translateX(180px) rotate(-360deg) scale(0.7);
+                filter: drop-shadow(0 0 30px rgba(255, 110, 199, 0.9));
+            }
+        }
+
+        /* Estela del cohete */
+        .rocket::before {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            left: -40px;
+            top: 50%;
+            transform: translateY(-50%);
+            border-left: 60px solid transparent;
+            border-right: 60px solid transparent;
+            border-top: 30px solid rgba(255, 110, 199, 0);
+            opacity: 0;
+            filter: blur(8px);
+        }
+
+        .rocket.flying::before {
+            animation: rocketTrail 4s ease-out forwards;
+        }
+
+        .rocket.orbiting::before {
+            animation: orbitTrail 8s linear infinite;
+        }
+
+        @keyframes rocketTrail {
+            0%, 10% {
+                opacity: 0;
+                border-top-color: rgba(255, 110, 199, 0);
+            }
+            20% {
+                opacity: 0.8;
+                border-top-color: rgba(255, 110, 199, 0.6);
+            }
+            40% {
+                opacity: 1;
+                border-top-color: rgba(167, 139, 250, 0.8);
+            }
+            60% {
+                opacity: 0.9;
+                border-top-color: rgba(102, 126, 234, 0.7);
+            }
+            80%, 100% {
+                opacity: 0.7;
+                border-top-color: rgba(255, 110, 199, 0.6);
+            }
+        }
+
+        @keyframes orbitTrail {
+            0%, 100% {
+                opacity: 0.6;
+                border-top-color: rgba(255, 110, 199, 0.5);
+            }
+            50% {
+                opacity: 0.8;
+                border-top-color: rgba(167, 139, 250, 0.7);
+            }
+        }
+
+        /* Partículas de propulsión */
+        .rocket-particles {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .rocket-particle {
+            position: absolute;
+            background: radial-gradient(circle, rgba(255, 110, 199, 1) 0%, rgba(167, 139, 250, 0.5) 50%, transparent 100%);
+            border-radius: 50%;
+            pointer-events: none;
+        }
+
+        /* Corazón planeta mejorado */
+        .heart-planet {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 200px;
+            filter: drop-shadow(0 0 30px rgba(255, 110, 199, 0.8));
+            animation: heartbeat 2s ease-in-out infinite;
+        }
+
+        .heart-planet.appear {
+            animation: planetAppear 2s ease-out forwards, heartbeat 2s ease-in-out infinite;
+        }
+
+        @keyframes heartbeat {
+            0%, 100% {
+                filter: drop-shadow(0 0 30px rgba(255, 110, 199, 0.8));
+            }
+            50% {
+                filter: drop-shadow(0 0 60px rgba(255, 110, 199, 1));
+            }
+        }
+
+        .heart-planet {
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            font-size: 150px;
+            filter: drop-shadow(0 0 30px rgba(255, 110, 199, 0.8));
+        }
+
+        .heart-planet.appear {
+            animation: planetAppear 2s ease-out forwards;
+        }
+
+        @keyframes planetAppear {
+            to {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
+        /* ===== PANTALLA PRINCIPAL ===== */
+        .floating-particles {
+            position: fixed;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+        }
+
+        .particle {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50%;
+            animation: float 6s infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) translateX(0); }
+            50% { transform: translateY(-30px) translateX(20px); }
+        }
+
+        .main-content {
+            position: relative;
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+
+        .photos-container {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .photo-frame {
+            width: 250px;
+            height: 250px;
+            border-radius: 20px;
+            overflow: hidden;
+            border: 3px solid rgba(255, 110, 199, 0.5);
+            box-shadow: 0 0 30px rgba(167, 139, 250, 0.4);
+            transition: transform 0.3s ease;
+            background: #1a1a2e;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: rgba(255, 255, 255, 0.3);
+            font-size: 1rem;
+        }
+
+        .photo-frame:hover {
+            transform: scale(1.05) rotate(2deg);
+            box-shadow: 0 0 50px rgba(255, 110, 199, 0.7);
+        }
+
+        .photo-frame img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .message-container {
+            margin: 3rem 0;
+            padding: 2rem;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            border: 1px solid rgba(255, 110, 199, 0.3);
+            backdrop-filter: blur(10px);
+        }
+
+        .message-container h1 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ff6ec7, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .message-container p {
+            font-size: 1.3rem;
+            line-height: 2;
+            color: rgba(255, 255, 255, 0.9);
+            margin-bottom: 1.5rem;
+            text-align: left;
+        }
+
+        /* ===== PANTALLA FINAL ===== */
+        .rocket-return {
+            font-size: 100px;
+            transform: rotate(135deg);
+        }
+
+        .rocket-return.leaving {
+            animation: rocketReturn 3s ease-in-out forwards;
+        }
+
+        @keyframes rocketReturn {
+            0% {
+                transform: translateY(-50vh) rotate(135deg) scale(1);
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(100vh) rotate(135deg) scale(0.3);
+                opacity: 0;
+            }
+        }
+
+        .final-message {
+            font-size: 2rem;
+            text-align: center;
+            padding: 2rem;
+            background: linear-gradient(45deg, #ff6ec7, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            opacity: 0;
+        }
+
+        .final-message.show {
+            animation: fadeIn 3s forwards;
+        }
+
+        @keyframes fadeIn {
+            to { opacity: 1; }
+        }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .landing-title {
+                font-size: 2rem;
+                padding: 0 1rem;
+            }
+
+            .btn {
+                padding: 1rem 2.5rem;
+                font-size: 1.2rem;
+            }
+
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+
+            .message-container h1 {
+                font-size: 1.8rem;
+            }
+
+            .message-container p {
+                font-size: 1.1rem;
+            }
+
+            .heart-planet {
+                font-size: 100px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PANTALLA 1: INICIO -->
+    <div id="screen1" class="screen">
+        <div class="stars-bg" id="stars1"></div>
+        <div class="landing-title">Para ti, Valentina ✨</div>
+        <button class="btn" id="btnStart">Continuar</button>
+    </div>
+
+    <!-- PANTALLA 2: ANIMACIÓN COHETE -->
+    <div id="screen2" class="screen">
+        <div class="stars-bg" id="stars2"></div>
+        <div class="rocket-particles" id="rocketParticles"></div>
+        <div class="rocket" id="rocket">🚀</div>
+        <div class="heart-planet" id="planet">💖</div>
+    </div>
+
+    <!-- PANTALLA 3: MENSAJE PRINCIPAL -->
+    <div id="screen3" class="screen">
+        <div class="floating-particles" id="particles"></div>
+        
+        <div class="main-content">
+            <div class="photos-container">
+                <div class="photo-frame">
+                    <img src="WhatsApp Image 2026-01-18 at 12.33.12 AM.jpeg" alt="nosotros">
+                </div>
+                <div class="photo-frame">
+                   <img src="WhatsApp Image 2026-01-18 at 12.33.57 AM.jpeg" alt="nosotros">
+                </div>
+            </div>
+
+            <div class="message-container">
+                <h1>Valentina</h1>
+                
+                <p>
+                    Tal vez ahora mismo sientas que las cosas han cambiado entre nosotros, 
+                    o quizá esto sea parte de un camino que nos está alejando. 
+                    Pero antes de que tomemos cualquier decisión, te pido que recordemos juntos.
+                </p>
+                <p>
+                    Recuerda cada risa compartida, cada momento en el que el mundo parecía detenerse 
+                    cuando estábamos juntos. Recuerda cómo comenzó todo, lo que construimos desde entonces.
+                </p>
+                <p>
+                    Te amo profundamente, Valentina. Y aunque no sé qué estás pensando o sintiendo en este momento, 
+                    necesito que sepas algo: siempre voy a estar aquí para ti. Jamás te daré la espalda, 
+                    jamás te dejaré sola, sin importar lo que pase.
+                </p>
+                <p>
+                    Solo te pido una cosa: que hables conmigo con honestidad. 
+                    Dime qué sientes, qué necesitas, qué quieres de mí, de nosotros. 
+                    Sea lo que sea, mereces ser escuchada y yo merezco saberlo.
+                </p>
+                <p style="text-align: center; margin-top: 2rem; font-style: italic;">
+                    Con todo mi amor, siempre 💫
+                </p>
+            </div>
+
+            <button class="btn" id="btnFinish">Finalizar</button>
+        </div>
+    </div>
+
+    <!-- PANTALLA 4: FINAL -->
+    <div id="screen4" class="screen">
+        <div class="stars-bg" id="stars4"></div>
+        <div class="rocket-return" id="rocketReturn">🚀</div>
+        <div class="final-message" id="finalMsg">
+            Gracias por este viaje...<br>
+            Te llevo siempre en mi corazón 💫
+        </div>
+    </div>
+
+    <!-- AUDIO -->
+    <audio id="music" loop>
+        <source src="Reik - Un Amor De Verdad (Letra).mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        // ===== CREAR ESTRELLAS =====
+        function makeStars(containerId, num) {
+            var container = document.getElementById(containerId);
+            for (var i = 0; i < num; i++) {
+                var star = document.createElement('div');
+                star.className = 'star';
+                star.style.width = Math.random() * 3 + 'px';
+                star.style.height = star.style.width;
+                star.style.left = Math.random() * 100 + '%';
+                star.style.top = Math.random() * 100 + '%';
+                star.style.animationDelay = Math.random() * 3 + 's';
+                container.appendChild(star);
+            }
+        }
+
+        // ===== CREAR PARTÍCULAS DE COHETE =====
+        function createRocketParticles() {
+            var container = document.getElementById('rocketParticles');
+            var particleCount = 0;
+            var maxParticles = 80;
+            
+            var interval = setInterval(function() {
+                if (particleCount >= maxParticles) {
+                    clearInterval(interval);
+                    return;
+                }
+                
+                var particle = document.createElement('div');
+                particle.className = 'rocket-particle';
+                
+                var size = Math.random() * 8 + 4;
+                particle.style.width = size + 'px';
+                particle.style.height = size + 'px';
+                
+                // Posición inicial cerca del cohete
+                var startX = Math.random() * 30 - 15;
+                var startY = Math.random() * 30 - 15;
+                
+                particle.style.left = 'calc(' + (particleCount * 1.25) + '% + ' + startX + 'px)';
+                particle.style.top = 'calc(50% + ' + startY + 'px)';
+                
+                particle.style.animation = 'particleFloat ' + (Math.random() * 2 + 1) + 's ease-out forwards';
+                particle.style.animationDelay = (particleCount * 0.05) + 's';
+                
+                container.appendChild(particle);
+                particleCount++;
+            }, 50);
+        }
+
+        // Animación de partículas
+        var style = document.createElement('style');
+        style.textContent = `
+            @keyframes particleFloat {
+                0% {
+                    opacity: 1;
+                    transform: translate(0, 0) scale(1);
+                }
+                100% {
+                    opacity: 0;
+                    transform: translate(${Math.random() * 100 - 50}px, ${Math.random() * 100 - 50}px) scale(0);
+                }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // ===== CREAR PARTÍCULAS FLOTANTES =====
+        function makeParticles() {
+            var container = document.getElementById('particles');
+            for (var i = 0; i < 30; i++) {
+                var p = document.createElement('div');
+                p.className = 'particle';
+                var size = Math.random() * 4 + 2;
+                p.style.width = size + 'px';
+                p.style.height = size + 'px';
+                p.style.left = Math.random() * 100 + '%';
+                p.style.top = Math.random() * 100 + '%';
+                p.style.animationDelay = Math.random() * 6 + 's';
+                container.appendChild(p);
+            }
+        }
+
+        // ===== INICIAR ESTRELLAS =====
+        makeStars('stars1', 150);
+
+        // ===== BOTÓN CONTINUAR =====
+        document.getElementById('btnStart').onclick = function() {
+            // Música
+            var music = document.getElementById('music');
+            music.play().catch(function() {});
+
+            // Ocultar pantalla 1
+            document.getElementById('screen1').style.display = 'none';
+
+            // Mostrar pantalla 2
+            var s2 = document.getElementById('screen2');
+            s2.style.display = 'block';
+            makeStars('stars2', 150);
+
+            // Crear partículas del cohete
+            createRocketParticles();
+
+            // Animar cohete
+            var rocket = document.getElementById('rocket');
+            rocket.classList.add('flying');
+
+            // Animar planeta después de 4s
+            setTimeout(function() {
+                document.getElementById('planet').classList.add('appear');
+            }, 4000);
+
+            // Ir a pantalla 3 después de 7s
+            setTimeout(function() {
+                s2.style.display = 'none';
+                var s3 = document.getElementById('screen3');
+                s3.style.display = 'block';
+                makeParticles();
+            }, 7000);
+        };
+
+        // ===== BOTÓN FINALIZAR =====
+        document.getElementById('btnFinish').onclick = function() {
+            // Ocultar pantalla 3
+            document.getElementById('screen3').style.display = 'none';
+
+            // Mostrar pantalla 4
+            var s4 = document.getElementById('screen4');
+            s4.style.display = 'flex';
+            makeStars('stars4', 100);
+
+            // Animar cohete regresando
+            document.getElementById('rocketReturn').classList.add('leaving');
+
+            // Mostrar mensaje final
+            setTimeout(function() {
+                document.getElementById('finalMsg').classList.add('show');
+            }, 2000);
+        };
+    </script>
+</body>
+</html>
